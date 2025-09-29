@@ -60,7 +60,7 @@ export default function Navbar() {
         >
           <a href="/" style={{ display: "flex", alignItems: "center" }}>
             <Image
-              src="/assets/Ghurab_Logo.jpg"
+              src="/assets/Ghurab_Logo.JPG"
               alt="Al-Ghurab Ventures Logo"
               width={160}
               height={80}
