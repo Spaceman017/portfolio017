@@ -59,7 +59,7 @@ export default function Navbar() {
         >
           <a href="/" style={{ display: "flex", alignItems: "center" }}>
             <img
-              src="/assets/Ghurab_Logo.JPG" // Ensure filename matches exactly
+              src="/assets/Ghurab_Logo.JPG" // exact match with public/assets filename
               alt="Al-Ghurab Ventures Logo"
               width={160}
               height={80}
@@ -78,13 +78,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Hover effects */}
       <style jsx>{`
         .logo-wrapper:hover {
           transform: scale(1.1);
           box-shadow: 0 0 20px rgba(30, 144, 255, 0.6);
         }
-
         .navbar:hover {
           box-shadow: 0 0 20px rgba(0, 71, 171, 0.7);
         }
