@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
+
+body {
+  background-color: white;     /* White background */
+  color: #111111;                /* Dark gray/black text */
+  font-family: 'Cinzel', serif;  /* Decorative font */
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+}
