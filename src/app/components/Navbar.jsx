@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 
 function NavLink({ href, children }) {
   const [hover, setHover] = useState(false);
@@ -59,12 +58,11 @@ export default function Navbar() {
           className="logo-wrapper"
         >
           <a href="/" style={{ display: "flex", alignItems: "center" }}>
-            <Image
-              src="/assets/Ghurab_Logo.JPG"
+            <img
+              src="/assets/Ghurab_Logo.JPG" // Ensure filename matches exactly
               alt="Al-Ghurab Ventures Logo"
               width={160}
               height={80}
-              priority
               style={{ objectFit: "contain" }}
             />
           </a>
