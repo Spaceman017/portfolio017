@@ -11,7 +11,7 @@ export default function Home() {
     <div
       style={{
         minHeight: "100vh",
-        backgroundImage: "url('/assets/fold-img.png')",
+        backgroundImage: "url('/pictures/fold-img.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
