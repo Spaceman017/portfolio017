@@ -78,7 +78,7 @@ export default function Home() {
           onMouseLeave={() => setHoverImage(false)}
         >
           <Image
-            src="/assets/Sulaiman_img.jpg"
+            src="/pictures/Sulaiman_img.jpg"
             alt="Sulaiman Muhammad"
             width={350}
             height={400}

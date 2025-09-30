@@ -75,7 +75,7 @@ export default function SkillsPage() {
           onMouseLeave={() => setHoverImage(false)}
         >
           <Image
-            src="/assets/vortex.jpg"
+            src="/pictures/vortex.jpg"
             alt="Vortex Illustration"
             width={500}
             height={400}

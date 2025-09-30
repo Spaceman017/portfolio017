@@ -52,7 +52,7 @@ export default function ContactPage() {
             {/* Email */}
             <a href="mailto:msulaiman1030@gmail.com">
               <img
-                src="/assets/Email_icon.png"
+                src="/pictures/Email_icon.png"
                 alt="Email"
                 style={{ width: '40px', height: '40px' }}
                  onMouseEnter={(e) => {
@@ -69,7 +69,7 @@ export default function ContactPage() {
             {/* Phone */}
             <a href="tel:09039628273">
               <img
-                src="/assets/Phone_icon.png"
+                src="/pictures/Phone_icon.png"
                 alt="Phone"
                 style={{ width: '40px', height: '40px' }}
                  onMouseEnter={(e) => {
@@ -90,7 +90,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
             >
               <img
-                src="/assets/WhatsApp-Logo-PNG-Background-Clip-Art.png"
+                src="/pictures/WhatsApp-Logo-PNG-Background-Clip-Art.png"
                 alt="WhatsApp"
                 style={{ width: '40px', height: '40px' }}
                  onMouseEnter={(e) => {
