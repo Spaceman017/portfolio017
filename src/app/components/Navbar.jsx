@@ -59,7 +59,7 @@ export default function Navbar() {
         >
           <a href="/" style={{ display: "flex", alignItems: "center" }}>
             <img
-              src="/assets/Ghurab_Logo.jpg" // exact match with public/assets filename
+              src="/pictures/Ghurab_Logo.jpg" // exact match with public/assets filename
               alt="Al-Ghurab Ventures Logo"
               width={160}
               height={80}
