@@ -11,11 +11,11 @@ export default function ProjectsPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const galleryImages = [
-    { name: "Madina", src: "/assets/Madina.png" },
-    { name: "Spice", src: "/assets/Spice.jpg" },
-    { name: "Make", src: "/assets/Make.png" },
-    { name: "Ramcy", src: "/assets/Ramcy.png" },
-    { name: "Ghurab_Logo", src: "/assets/Ghurab_Logo.jpg" },
+    { name: "Madina", src: "/pictures/Madina.png" },
+    { name: "Spice", src: "/pictures/Spice.jpg" },
+    { name: "Make", src: "/pictures/Make.png" },
+    { name: "Ramcy", src: "/pictures/Ramcy.png" },
+    { name: "Ghurab_Logo", src: "/pictures/Ghurab_Logo.jpg" },
   ];
 
   const openModal = (index) => {
