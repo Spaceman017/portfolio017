@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from './components/Navbar';
-import ButtonLink from './components/ButtonLink';
+import Navbar from "./components/Navbar";
+import ButtonLink from "./components/ButtonLink";
 
 export default function Home() {
   const [hover, setHover] = useState(false);
@@ -16,21 +16,28 @@ export default function Home() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         color: "white",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <Navbar />
       <main
         style={{
-          maxWidth: "800px",
-          margin: "2rem auto", // centers the card horizontally
+          flexGrow: 1,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           padding: "1rem",
+          textAlign: "center",
         }}
       >
-        {/* Centered info card with hover pop */}
+        {/* Info Card */}
         <section
           style={{
             padding: "2rem",
-            background: "rgba(10,10,10,0.85)", // slight transparency for readability
+            maxWidth: "800px",
+            width: "100%",
+            background: "rgba(10,10,10,0.85)",
             borderRadius: 7,
             border: hover ? "2px solid #0047AB" : "2px solid gray",
             boxShadow: hover
@@ -44,24 +51,69 @@ export default function Home() {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
-          <h1 style={{ color: "#1e90ff", marginBottom: "0.5rem" }}>
+          <h1
+            style={{
+              color: "#1e90ff",
+              marginBottom: "0.5rem",
+              fontSize: "clamp(1.5rem, 4vw, 2.2rem)", // responsive font size
+            }}
+          >
             Welcome to Al-Ghurab Ventures
           </h1>
-          <p style={{ lineHeight: 1.6 }}>
+
+          <p
+            style={{
+              lineHeight: 1.6,
+              fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+              margin: "0.5rem 0",
+            }}
+          >
             A starting up software development company, started by a soul
             developer with an ambition to develop an app that revolves around
             the world of automobile.
           </p>
-          <p style={{ marginTop: "1rem" }}>
+
+          <p
+            style={{
+              marginTop: "1rem",
+              fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+            }}
+          >
             I am actively learning modern tools like React and Next.js and aim
             to deliver practical, user-friendly apps as I grow.
           </p>
-          <div style={{ marginTop: "1.25rem" }}>
+
+          <div
+            style={{
+              marginTop: "1.25rem",
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "1rem",
+            }}
+          >
             <ButtonLink href="/about">About Me</ButtonLink>
             <ButtonLink href="/projects">My Projects</ButtonLink>
           </div>
         </section>
       </main>
+
+      {/* Responsive fixes */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          div {
+            background-attachment: scroll;
+          }
+
+          section {
+            padding: 1.5rem;
+          }
+
+          p {
+            text-align: center;
+          }
+        }
+      `}</style>
     </div>
   );
 }

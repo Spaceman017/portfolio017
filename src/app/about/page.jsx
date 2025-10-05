@@ -9,14 +9,18 @@ export default function Home() {
   const [hoverImage, setHoverImage] = useState(false);
 
   return (
-    <div  style={{
+    <div
+      style={{
         minHeight: "100vh",
+        width: "100vw",
         backgroundImage: "url('/pictures/fold-img.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         color: "white",
-      }}>
+        overflowX: "hidden",
+      }}
+    >
       <Navbar />
       <main
         style={{
@@ -24,8 +28,9 @@ export default function Home() {
           margin: '2rem auto',
           padding: '1rem',
           display: 'flex',
-          justifyContent: 'flex-start', // left align the card
           gap: '2rem',
+          flexWrap: 'wrap', // stack on smaller screens
+          justifyContent: 'center',
         }}
       >
         {/* Left info card */}
@@ -42,6 +47,7 @@ export default function Home() {
             transform: hoverCard ? 'scale(1.05)' : 'scale(1)',
             cursor: 'pointer',
             width: '400px',
+            maxWidth: '100%',
             color: '#f0f0f0',
           }}
           onMouseEnter={() => setHoverCard(true)}
@@ -61,10 +67,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Right image - pushed more to the right */}
+        {/* Right image */}
         <div
           style={{
-            marginLeft: 'auto', // pushes the image to the far right
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -73,6 +78,8 @@ export default function Home() {
             boxShadow: hoverImage ? '0 15px 25px rgba(0,71,171,0.4)' : 'none',
             borderRadius: 10,
             cursor: 'pointer',
+            flex: '1 1 350px', // responsive
+            minWidth: '300px',
           }}
           onMouseEnter={() => setHoverImage(true)}
           onMouseLeave={() => setHoverImage(false)}
@@ -89,4 +96,3 @@ export default function Home() {
     </div>
   );
 }
-

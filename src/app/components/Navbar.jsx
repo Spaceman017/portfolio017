@@ -1,18 +1,17 @@
 "use client";
 import { useState } from "react";
 
-function NavLink({ href, children }) {
+function NavLink({ href, children, style }) {
   const [hover, setHover] = useState(false);
-
   const linkStyle = {
-    marginRight: "1rem",
-    color: hover ? "#00bfff" : "#1e90ff",
+    margin: "0.25rem 0",
+    color: hover ? "#00bfff" : "#fff",
     textDecoration: "none",
     transition: "color 0.2s ease",
     fontWeight: 500,
     cursor: "pointer",
+    ...style,
   };
-
   return (
     <a
       href={href}
@@ -26,6 +25,9 @@ function NavLink({ href, children }) {
 }
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const links = ["Home", "About", "Skills", "Projects", "Contact"];
+
   return (
     <nav
       style={{
@@ -36,8 +38,8 @@ export default function Navbar() {
         zIndex: 50,
         borderBottom: "2px solid rgba(30, 144, 255, 0.6)",
         transition: "box-shadow 0.3s ease",
+        width: "100%",
       }}
-      className="navbar"
     >
       <div
         style={{
@@ -46,6 +48,7 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          position: "relative",
         }}
       >
         {/* Logo */}
@@ -59,7 +62,7 @@ export default function Navbar() {
         >
           <a href="/" style={{ display: "flex", alignItems: "center" }}>
             <img
-              src="/pictures/Ghurab_Logo.jpg" // exact match with public/assets filename
+              src="/pictures/Ghurab_Logo.jpg"
               alt="Al-Ghurab Ventures Logo"
               width={160}
               height={80}
@@ -68,13 +71,86 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Navigation links */}
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/skills">Skills</NavLink>
-          <NavLink href="/projects">Projects</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
+        {/* Hamburger Icon */}
+        <div
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: "28px",
+            height: "22px",
+            cursor: "pointer",
+            zIndex: 101,
+            marginLeft: "8px", // move left for visibility
+          }}
+        >
+          <span
+            style={{
+              height: "3px",
+              width: "100%",
+              background: "#1e90ff",
+              borderRadius: "2px",
+              transition: "all 0.35s ease",
+              transform: menuOpen ? "rotate(45deg) translateY(8px)" : "none",
+            }}
+          />
+          <span
+            style={{
+              height: "3px",
+              width: "100%",
+              background: "#1e90ff",
+              borderRadius: "2px",
+              transition: "all 0.35s ease",
+              opacity: menuOpen ? 0 : 1,
+            }}
+          />
+          <span
+            style={{
+              height: "3px",
+              width: "100%",
+              background: "#1e90ff",
+              borderRadius: "2px",
+              transition: "all 0.35s ease",
+              transform: menuOpen ? "rotate(-45deg) translateY(-8px)" : "none",
+            }}
+          />
+        </div>
+
+        {/* Dropdown Links */}
+        <div
+          style={{
+            position: "absolute",
+            top: "120%",
+            right: "0",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-end",
+            pointerEvents: menuOpen ? "auto" : "none",
+            gap: "0.5rem",
+          }}
+        >
+          {links.map((text, index) => (
+            <NavLink
+              key={index}
+              href={`/${text.toLowerCase()}`}
+              style={{
+                background: "#1e90ff",
+                color: "white",
+                padding: "0.5rem 1rem",
+                borderRadius: "6px",
+                width: "150px",
+                textAlign: "center",
+                opacity: menuOpen ? 1 : 0,
+                transform: menuOpen
+                  ? "translateY(0)"
+                  : "translateY(-20px)",
+                transition: `opacity 0.3s ease ${index * 0.05}s, transform 0.3s ease ${index * 0.05}s`,
+              }}
+            >
+              {text}
+            </NavLink>
+          ))}
         </div>
       </div>
 

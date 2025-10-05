@@ -24,29 +24,29 @@ export default function ProjectsPage() {
   };
 
   const closeModal = () => setModalOpen(false);
-
-  const prevImage = () => {
+  const prevImage = () =>
     setCurrentIndex((currentIndex + galleryImages.length - 1) % galleryImages.length);
-  };
-
-  const nextImage = () => {
+  const nextImage = () =>
     setCurrentIndex((currentIndex + 1) % galleryImages.length);
-  };
 
   return (
-    <div  style={{
+    <div
+      style={{
         minHeight: "100vh",
+        width: "100vw",
         backgroundImage: "url('/pictures/fold-img.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         color: "white",
-      }}>
+        overflowX: "hidden",
+      }}
+    >
       <Navbar />
 
       <main
         style={{
-          maxWidth: '1000px',
+          maxWidth: '1200px',
           margin: '2rem auto',
           padding: '1rem',
           display: 'flex',
@@ -55,7 +55,7 @@ export default function ProjectsPage() {
           gap: '2rem',
         }}
       >
-        {/* Centered info card */}
+        {/* Info card */}
         <section
           style={{
             padding: '2rem',
@@ -76,31 +76,42 @@ export default function ProjectsPage() {
           onMouseLeave={() => setHoverCard(false)}
         >
           <h1 style={{ color: '#1e90ff', marginBottom: '1rem' }}>Project</h1>
-  <div style={{ lineHeight: 1.6 }}>
-    <h3 style={{ marginBottom: '0.25rem' }}>A Cooking Recipe Website</h3>
-    <p style={{ marginBottom: '1rem' }}>A frontend-only recipes website built with HTML, CSS, and JavaScript.</p>
+          <div style={{ lineHeight: 1.6 }}>
+            <h3 style={{ marginBottom: '0.25rem' }}>A Cooking Recipe Website</h3>
+            <p style={{ marginBottom: '1rem' }}>
+              Frontend-only recipes website built with HTML, CSS, and JavaScript.
+            </p>
 
-    <h3 style={{ marginBottom: '0.25rem' }}>A Blogging Website for Aspiring Journalists</h3>
-    <p style={{ marginBottom: '1rem' }}>A frontend blogging prototype built with HTML, CSS, and JavaScript.</p>
+            <h3 style={{ marginBottom: '0.25rem' }}>A Blogging Website</h3>
+            <p style={{ marginBottom: '1rem' }}>
+              Frontend blogging prototype built with HTML, CSS, and JavaScript.
+            </p>
 
-    <h3 style={{ marginBottom: '0.25rem' }}>An Automobile Building App (In Development)</h3>
-    <p>Planned application focusing on car-related features and tools.</p>
-    <div style={{ marginTop: '1.5rem' }}>
-            <ButtonLink href="/contact">Reach me</ButtonLink>
+            <h3 style={{ marginBottom: '0.25rem' }}>An Automobile App (In Development)</h3>
+            <p>Planned application focusing on car-related features.</p>
+
+            <div style={{ marginTop: '1.5rem' }}>
+              <ButtonLink href="/contact">Reach me</ButtonLink>
+            </div>
           </div>
-  
-  </div>
-</section>
+        </section>
+
         {/* Gallery title */}
-        <h2 style={{ color: '#000000ff', marginBottom: '1rem', textAlign: 'center' }}>
+        <h2
+          style={{
+            color: '#000000ff',
+            marginBottom: '1rem',
+            textAlign: 'center',
+          }}
+        >
           Some previous graphic design projects
         </h2>
 
-        {/* Gallery images */}
+        {/* Gallery */}
         <div
           style={{
             display: 'flex',
-            gap: '2rem',
+            gap: '1rem',
             justifyContent: 'center',
             flexWrap: 'wrap',
           }}
@@ -116,9 +127,15 @@ export default function ProjectsPage() {
                   : 'none',
                 borderRadius: 10,
                 cursor: 'pointer',
+                flex: '1 1 200px',
+                maxWidth: '250px',
               }}
-              onMouseEnter={() => setHoverGallery({ ...hoverGallery, [img.name]: true })}
-              onMouseLeave={() => setHoverGallery({ ...hoverGallery, [img.name]: false })}
+              onMouseEnter={() =>
+                setHoverGallery({ ...hoverGallery, [img.name]: true })
+              }
+              onMouseLeave={() =>
+                setHoverGallery({ ...hoverGallery, [img.name]: false })
+              }
               onClick={() => openModal(index)}
             >
               <Image
@@ -126,13 +143,13 @@ export default function ProjectsPage() {
                 alt={img.name}
                 width={250}
                 height={250}
-                style={{ borderRadius: 10, objectFit: 'cover' }}
+                style={{ borderRadius: 10, objectFit: 'cover', width: '100%' }}
               />
             </div>
           ))}
         </div>
 
-        {/* Custom modal/lightbox */}
+        {/* Modal */}
         {modalOpen && (
           <div
             style={{
@@ -155,22 +172,23 @@ export default function ProjectsPage() {
                 maxWidth: '90%',
                 maxHeight: '90%',
               }}
-              onClick={(e) => e.stopPropagation()} // prevent closing on image click
+              onClick={(e) => e.stopPropagation()}
             >
               <Image
                 src={galleryImages[currentIndex].src}
                 alt={galleryImages[currentIndex].name}
                 width={800}
                 height={800}
-                style={{ objectFit: 'contain', borderRadius: 10 }}
+                style={{ objectFit: 'contain', borderRadius: 10, width: '100%', height: 'auto' }}
               />
-              {/* Navigation */}
+
+              {/* Navigation buttons */}
               <button
                 onClick={prevImage}
                 style={{
                   position: 'absolute',
                   top: '50%',
-                  left: '-50px',
+                  left: '-40px',
                   transform: 'translateY(-50%)',
                   background: 'transparent',
                   color: '#fff',
@@ -186,7 +204,7 @@ export default function ProjectsPage() {
                 style={{
                   position: 'absolute',
                   top: '50%',
-                  right: '-50px',
+                  right: '-40px',
                   transform: 'translateY(-50%)',
                   background: 'transparent',
                   color: '#fff',
@@ -197,12 +215,13 @@ export default function ProjectsPage() {
               >
                 ›
               </button>
-              {/* Close */}
+
+              {/* Close button */}
               <button
                 onClick={closeModal}
                 style={{
                   position: 'absolute',
-                  top: '-50px',
+                  top: '-40px',
                   right: '0',
                   background: 'transparent',
                   color: '#fff',

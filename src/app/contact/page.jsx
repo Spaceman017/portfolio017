@@ -6,30 +6,35 @@ export default function ContactPage() {
   const [hoverCard, setHoverCard] = useState(false);
 
   return (
-    <div  style={{
+    <div
+      style={{
         minHeight: "100vh",
+        width: "100vw",
         backgroundImage: "url('/pictures/fold-img.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         color: "white",
-      }}>
+        overflowX: "hidden",
+      }}
+    >
       <Navbar />
       <main
         style={{
-          maxWidth: '1000px',
+          maxWidth: '1200px',
           margin: '2rem auto',
           padding: '1rem',
           display: 'flex',
-          gap: '3rem',
-          alignItems: 'flex-start',
+          gap: '2rem',
+          flexWrap: 'wrap', // stack on small screens
+          justifyContent: 'center',
         }}
       >
         {/* Left: Contact Info Card */}
         <section
           style={{
             padding: '2rem',
-            background: '#060606',
+            background: "rgba(10,10,10,0.85)",
             borderRadius: 8,
             border: hoverCard ? '2px solid #00bfff' : '2px solid gray',
             boxShadow: hoverCard
@@ -47,60 +52,52 @@ export default function ContactPage() {
         >
           <h1 style={{ color: '#1e90ff', marginBottom: '1rem' }}>Contact</h1>
 
-          {/* Icons Row */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem' }}>
-            {/* Email */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
             <a href="mailto:msulaiman1030@gmail.com">
               <img
                 src="/pictures/Email_icon.png"
                 alt="Email"
-                style={{ width: '40px', height: '40px' }}
-                 onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.2)";
-        e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-        e.currentTarget.style.boxShadow = "none";
-      }}
+                style={{ width: '40px', height: '40px', transition: '0.2s' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.2)";
+                  e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               />
             </a>
 
-            {/* Phone */}
             <a href="tel:09039628273">
               <img
                 src="/pictures/Phone_icon.png"
                 alt="Phone"
-                style={{ width: '40px', height: '40px' }}
-                 onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.2)";
-        e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-        e.currentTarget.style.boxShadow = "none";
-      }}
+                style={{ width: '40px', height: '40px', transition: '0.2s' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.2)";
+                  e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               />
             </a>
 
-            {/* WhatsApp */}
-            <a
-              href="https://wa.me/2348118639075"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://wa.me/2348118639075" target="_blank" rel="noopener noreferrer">
               <img
                 src="/pictures/WhatsApp-Logo-PNG-Background-Clip-Art.png"
                 alt="WhatsApp"
-                style={{ width: '40px', height: '40px' }}
-                 onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.2)";
-        e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-        e.currentTarget.style.boxShadow = "none";
-      }}
+                style={{ width: '40px', height: '40px', transition: '0.2s' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.2)";
+                  e.currentTarget.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               />
             </a>
           </div>
@@ -110,9 +107,10 @@ export default function ContactPage() {
         <section
           style={{
             padding: '2rem',
-            background: '#060606',
+            background: "rgba(10,10,10,0.85)",
             borderRadius: 8,
-            flex: 1,
+            flex: '1 1 300px', // flexible width for smaller screens
+            minWidth: '300px',
           }}
         >
           <h1 style={{ color: '#1e90ff', marginBottom: '1rem' }}>Send a Message</h1>
