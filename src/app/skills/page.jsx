@@ -43,12 +43,12 @@ export default function SkillsPage() {
           style={{
             flex: "1 1 350px",
             padding: "1.5rem",
-            background: "rgba(10,10,10,0.85)",
+            background: "rgba(255, 255, 255, 0.85)",
             borderRadius: 8,
-            border: hoverCard ? "2px solid #00bfff" : "2px solid gray",
+            border: hoverCard ? "2px solid #0047AB" : "2px solid black",
             boxShadow: hoverCard
-              ? "0 15px 25px rgba(0,191,255,0.5)"
-              : "0 10px 20px rgba(0,0,0,0.3)",
+              ? "0 15px 25px rgba(0, 71, 171)"
+              : "0 10px 20px rgba(0, 71, 171)",
             transition:
               "transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease",
             transform: hoverCard ? "scale(1.05)" : "scale(1)",
@@ -59,8 +59,8 @@ export default function SkillsPage() {
           onMouseEnter={() => setHoverCard(true)}
           onMouseLeave={() => setHoverCard(false)}
         >
-          <h1 style={{ color: "#1e90ff", marginBottom: "1rem" }}>Skills</h1>
-          <ul style={{ lineHeight: 1.6, paddingLeft: "1rem" }}>
+          <h1 style={{ color: "#0047ab", marginBottom: "1rem" }}>Skills</h1>
+          <ul style={{ color: "#000000ff", lineHeight: 1.6, paddingLeft: "1rem" }}>
             <li>HTML</li>
             <li>CSS</li>
             <li>JavaScript</li>

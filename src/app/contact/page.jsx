@@ -34,23 +34,24 @@ export default function ContactPage() {
         <section
           style={{
             padding: '2rem',
-            background: "rgba(10,10,10,0.85)",
+            background: "rgba(255, 255, 255, 0.85)",
             borderRadius: 8,
-            border: hoverCard ? '2px solid #00bfff' : '2px solid gray',
+            border: hoverCard ? '2px solid #0047ab' : '2px solid black',
             boxShadow: hoverCard
-              ? '0 15px 25px rgba(0,191,255,0.5)'
-              : '0 10px 20px rgba(0,0,0,0.3)',
+              ? '0 15px 25px rgba(0, 71, 171)'
+              : '0 10px 20px rgba(0, 71, 171)',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease',
             transform: hoverCard ? 'scale(1.05)' : 'scale(1)',
             cursor: 'pointer',
             color: '#f0f0f0',
             width: '350px',
+            height: '150px',
             textAlign: 'center',
           }}
           onMouseEnter={() => setHoverCard(true)}
           onMouseLeave={() => setHoverCard(false)}
         >
-          <h1 style={{ color: '#1e90ff', marginBottom: '1rem' }}>Contact</h1>
+          <h1 style={{ color: '#0047ab', marginBottom: '1rem' }}>Contact</h1>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
             <a href="mailto:msulaiman1030@gmail.com">
@@ -107,13 +108,13 @@ export default function ContactPage() {
         <section
           style={{
             padding: '2rem',
-            background: "rgba(10,10,10,0.85)",
+            background: "rgba(212, 212, 212, 0.85)",
             borderRadius: 8,
             flex: '1 1 300px', // flexible width for smaller screens
             minWidth: '300px',
           }}
         >
-          <h1 style={{ color: '#1e90ff', marginBottom: '1rem' }}>Send a Message</h1>
+          <h1 style={{ color: '#0047ab', marginBottom: '1rem' }}>Send a Message</h1>
           <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <input
               type="text"
@@ -134,7 +135,7 @@ export default function ContactPage() {
               type="submit"
               style={{
                 padding: '0.75rem',
-                backgroundColor: '#1e90ff',
+                backgroundColor: '#0047ab',
                 color: 'white',
                 border: 'none',
                 borderRadius: 5,

@@ -8,7 +8,7 @@ export default function ButtonLink({ href, children }) {
     padding: "0.55rem 1rem",
     margin: "0.5rem 0.25rem",
     borderRadius: 6,
-    background: hover ? "#00bfff" : "#1e90ff",
+    background: hover ? "#000000ff" : "#0047AB",
     color: "white",
     textDecoration: "none",
     transition: "all 0.2s ease",

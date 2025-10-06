@@ -9,6 +9,7 @@ export default function ProjectsPage() {
   const [hoverGallery, setHoverGallery] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [galleryVisible, setGalleryVisible] = useState(false); // toggle gallery
 
   const galleryImages = [
     { name: "Madina", src: "/pictures/Madina.png" },
@@ -59,12 +60,12 @@ export default function ProjectsPage() {
         <section
           style={{
             padding: '2rem',
-            background: "rgba(10,10,10,0.85)",
+            background: "rgba(255, 255, 255, 0.85)",
             borderRadius: 8,
-            border: hoverCard ? '2px solid #00bfff' : '2px solid gray',
+            border: hoverCard ? '2px solid #0047ab' : '2px solid black',
             boxShadow: hoverCard
-              ? '0 15px 25px rgba(0,191,255,0.5)'
-              : '0 10px 20px rgba(0,0,0,0.3)',
+              ? '0 15px 25px rgba(0, 71, 171)'
+              : '0 10px 20px rgba(0, 71, 171)',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease',
             transform: hoverCard ? 'scale(1.05)' : 'scale(1)',
             cursor: 'pointer',
@@ -75,19 +76,19 @@ export default function ProjectsPage() {
           onMouseEnter={() => setHoverCard(true)}
           onMouseLeave={() => setHoverCard(false)}
         >
-          <h1 style={{ color: '#1e90ff', marginBottom: '1rem' }}>Project</h1>
+          <h1 style={{ color: '#0047ab', marginBottom: '1rem' }}>Project</h1>
           <div style={{ lineHeight: 1.6 }}>
-            <h3 style={{ marginBottom: '0.25rem' }}>A Cooking Recipe Website</h3>
-            <p style={{ marginBottom: '1rem' }}>
+            <h3 style={{ color: 'black', marginBottom: '0.25rem' }}>A Cooking Recipe Website</h3>
+            <p style={{ color: 'black', marginBottom: '1rem' }}>
               Frontend-only recipes website built with HTML, CSS, and JavaScript.
             </p>
 
-            <h3 style={{ marginBottom: '0.25rem' }}>A Blogging Website</h3>
-            <p style={{ marginBottom: '1rem' }}>
+            <h3 style={{ color: 'black', marginBottom: '0.25rem' }}>A Blogging Website</h3>
+            <p style={{ color: 'black', marginBottom: '1rem' }}>
               Frontend blogging prototype built with HTML, CSS, and JavaScript.
             </p>
 
-            <h3 style={{ marginBottom: '0.25rem' }}>An Automobile App (In Development)</h3>
+            <h3 style={{ color: 'black', marginBottom: '0.25rem' }}>An Automobile App (In Development)</h3>
             <p>Planned application focusing on car-related features.</p>
 
             <div style={{ marginTop: '1.5rem' }}>
@@ -96,58 +97,76 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {/* Gallery title */}
-        <h2
+        {/* Gallery toggle button */}
+        <div
           style={{
-            color: '#000000ff',
-            marginBottom: '1rem',
+            width: '100%',
+            maxWidth: '800px',
+            background: 'rgba(0, 71, 171, 0.1)',
+            padding: '1rem',
+            borderRadius: '8px',
             textAlign: 'center',
           }}
         >
-          Some previous graphic design projects
-        </h2>
+          <button
+            onClick={() => setGalleryVisible(!galleryVisible)}
+            style={{
+              padding: '0.5rem 1rem',
+              fontSize: '1rem',
+              borderRadius: '5px',
+              border: '2px solid #0047AB',
+              background: '#0047AB',
+              color: '#fff',
+              cursor: 'pointer',
+            }}
+          >
+            {galleryVisible ? "Hide Previous Graphics Projects" : "Show Previous Graphics Projects"}
+          </button>
+        </div>
 
         {/* Gallery */}
-        <div
-          style={{
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-          }}
-        >
-          {galleryImages.map((img, index) => (
-            <div
-              key={img.name}
-              style={{
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                transform: hoverGallery[img.name] ? 'scale(1.05)' : 'scale(1)',
-                boxShadow: hoverGallery[img.name]
-                  ? '0 15px 25px rgba(0,191,255,0.4)'
-                  : 'none',
-                borderRadius: 10,
-                cursor: 'pointer',
-                flex: '1 1 200px',
-                maxWidth: '250px',
-              }}
-              onMouseEnter={() =>
-                setHoverGallery({ ...hoverGallery, [img.name]: true })
-              }
-              onMouseLeave={() =>
-                setHoverGallery({ ...hoverGallery, [img.name]: false })
-              }
-              onClick={() => openModal(index)}
-            >
-              <Image
-                src={img.src}
-                alt={img.name}
-                width={250}
-                height={250}
-                style={{ borderRadius: 10, objectFit: 'cover', width: '100%' }}
-              />
-            </div>
-          ))}
-        </div>
+        {galleryVisible && (
+          <div
+            style={{
+              display: 'flex',
+              gap: '1rem',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
+            {galleryImages.map((img, index) => (
+              <div
+                key={img.name}
+                style={{
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                  transform: hoverGallery[img.name] ? 'scale(1.05)' : 'scale(1)',
+                  boxShadow: hoverGallery[img.name]
+                    ? 'none'
+                    : 'none',
+                  borderRadius: 10,
+                  cursor: 'pointer',
+                  flex: '1 1 200px',
+                  maxWidth: '250px',
+                }}
+                onMouseEnter={() =>
+                  setHoverGallery({ ...hoverGallery, [img.name]: true })
+                }
+                onMouseLeave={() =>
+                  setHoverGallery({ ...hoverGallery, [img.name]: false })
+                }
+                onClick={() => openModal(index)}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.name}
+                  width={250}
+                  height={250}
+                  style={{ borderRadius: 10, objectFit: 'cover', width: '100%' }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Modal */}
         {modalOpen && (

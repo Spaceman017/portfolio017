@@ -37,12 +37,12 @@ export default function Home() {
         <section
           style={{
             padding: '1.5rem',
-            background: "rgba(10,10,10,0.85)",
-            borderRadius: 7,
-            border: hoverCard ? '2px solid #0047AB' : '2px solid gray',
+            background: "rgba(255, 255, 255, 0.85)",
+            borderRadius: 8,
+            border: hoverCard ? '2px solid #0047AB' : '2px solid black',
             boxShadow: hoverCard
-              ? '0 15px 25px rgba(0,71,171,0.6)'
-              : '0 10px 20px rgba(0,0,0,0.3)',
+              ? '0 15px 25px rgba(0,71,171)'
+              : '0 10px 20px rgba(0, 71, 171)',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease',
             transform: hoverCard ? 'scale(1.05)' : 'scale(1)',
             cursor: 'pointer',
@@ -53,12 +53,12 @@ export default function Home() {
           onMouseEnter={() => setHoverCard(true)}
           onMouseLeave={() => setHoverCard(false)}
         >
-          <h1 style={{ color: '#1e90ff', marginBottom: '0.5rem' }}>About</h1>
-          <p style={{ lineHeight: 1.6 }}>
+          <h1 style={{ color: '#0047ab', marginBottom: '0.5rem' }}>About</h1>
+          <p style={{ color: "black", lineHeight: 1.6 }}>
             I am <strong>Sulaiman Muhammad</strong>, a student at Kaduna State University,
             currently training at <strong>Cloudsoft Consulting.</strong>
           </p>
-          <p style={{ marginTop: '1rem' }}>
+          <p style={{ color: "black", marginTop: '1rem' }}>
             I am actively learning modern tools like React and Next.js and aim to deliver practical,
             user-friendly apps as I grow.
           </p>
@@ -75,7 +75,7 @@ export default function Home() {
             alignItems: 'center',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
             transform: hoverImage ? 'scale(1.05)' : 'scale(1)',
-            boxShadow: hoverImage ? '0 15px 25px rgba(0,71,171,0.4)' : 'none',
+            boxShadow: hoverImage ? "none" : 'none',
             borderRadius: 10,
             cursor: 'pointer',
             flex: '1 1 350px', // responsive
