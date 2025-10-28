@@ -89,7 +89,7 @@ export default function ProjectsPage() {
             </p>
 
             <h3 style={{ color: 'black', marginBottom: '0.25rem' }}>An Automobile App (In Development)</h3>
-            <p>Planned application focusing on car-related features.</p>
+            <p style={{ color: 'black', marginBottom: '1rem' }}>Planned application focusing on car-related features.</p>
 
             <div style={{ marginTop: '1.5rem' }}>
               <ButtonLink href="/contact">Reach me</ButtonLink>
