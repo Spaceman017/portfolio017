@@ -16,21 +16,21 @@ export default function ContactPage() {
         backgroundRepeat: "no-repeat",
         color: "white",
         overflowX: "hidden",
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       <Navbar />
       <main
         style={{
-          maxWidth: '1200px',
-          margin: '2rem auto',
-          padding: '1rem',
+          flex: 1,
           display: 'flex',
-          gap: '2rem',
-          flexWrap: 'wrap', // stack on small screens
+          alignItems: 'center',
           justifyContent: 'center',
+          padding: '1rem',
         }}
       >
-        {/* Left: Contact Info Card */}
+        {/* Centered Contact Card */}
         <section
           style={{
             padding: '2rem',
@@ -102,50 +102,6 @@ export default function ContactPage() {
               />
             </a>
           </div>
-        </section>
-
-        {/* Right: Message form */}
-        <section
-          style={{
-            padding: '2rem',
-            background: "rgba(212, 212, 212, 0.85)",
-            borderRadius: 8,
-            flex: '1 1 300px', // flexible width for smaller screens
-            minWidth: '300px',
-          }}
-        >
-          <h1 style={{ color: '#0047ab', marginBottom: '1rem' }}>Send a Message</h1>
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <input
-              type="text"
-              placeholder="Your Name"
-              style={{ padding: '0.75rem', borderRadius: 5, border: '1px solid gray' }}
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              style={{ padding: '0.75rem', borderRadius: 5, border: '1px solid gray' }}
-            />
-            <textarea
-              placeholder="Your Message"
-              rows={6}
-              style={{ padding: '0.75rem', borderRadius: 5, border: '1px solid gray' }}
-            />
-            <button
-              type="submit"
-              style={{
-                padding: '0.75rem',
-                backgroundColor: '#0047ab',
-                color: 'white',
-                border: 'none',
-                borderRadius: 5,
-                cursor: 'pointer',
-                fontWeight: 'bold',
-              }}
-            >
-              Send
-            </button>
-          </form>
         </section>
       </main>
     </div>
